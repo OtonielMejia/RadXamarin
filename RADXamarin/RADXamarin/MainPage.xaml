@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RADXamarin.MainPage">
+
+    <StackLayout>
+        <Image  Aspect="AspectFit" Source="https://ucenm.net/tutoriales/images/logo1.png"/>
+        <Label Text="Registrar nuevo contacto"
+               HorizontalOptions="Center"/>
+        <Entry x:Name="txtIdContaco" IsVisible="false" IsEnabled="False"/>
+        <Entry x:Name="txtNombres" Placeholder="Nombres"/>
+        <Entry x:Name="txtApellidos" Placeholder="Apellidos"/>
+        <Entry x:Name="txtEdad" Placeholder="Edad"/>
+        <Picker x:Name="CombxPais" Title="Pais">
+            <Picker.Items>
+                <x:String>Honduras</x:String>
+                <x:String>Guatemala</x:String>
+                <x:String>El Salvador</x:String>
+                <x:String>Costa Rica</x:String>
+            </Picker.Items>
+        </Picker>
+        <Entry x:Name="txtNota" Placeholder="Nota"/>
+        <Entry x:Name="txtImagen" Placeholder="Imagen" IsVisible="false"/>
+        <Button x:Name="btnRegistar" Text="Guardar" Clicked="btnRegistar_Clicked"/>
+        <Button x:Name="btnActualizar" Text="Actualizar" BackgroundColor="Aqua" Clicked="btnActualizar_Clicked" IsVisible="false"/>
+        <Button x:Name="btnEliminar" Text="Eliminar" BackgroundColor="Red" Clicked="btnEliminar_Clicked" IsVisible="false"/>
+        <ListView x:Name="listContactos" ItemSelected="listContactos_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding IdContacto}" Grid.Row="0" Grid.Column="0" TextColor="Black"/>
+                            <Label Text="{Binding Nombres}" Grid.Row="0" Grid.Column="1" TextColor="Gray"/>
+                            <Label Text="{Binding Apellidos}" Grid.Row="0" Grid.Column="2" TextColor="Gray"/>
+                            <Label Text="{Binding Edad}" Grid.Row="0" Grid.Column="3" TextColor="Gray"/>
+                            <Label Text="{Binding Pais}" Grid.Row="0" Grid.Column="4" TextColor="Orange"/>
+                            <Label Text="{Binding Nota}" Grid.Row="1" Grid.ColumnSpan="5" TextColor="Orange"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>
